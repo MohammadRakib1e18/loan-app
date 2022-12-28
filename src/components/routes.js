@@ -1,9 +1,9 @@
 import { createBrowserRouter } from "react-router-dom";
 import Main from "../Layout/Main";
-import Business from "./Business/Business";
+import BusinessForm from "./Business/BusinessForm";
 import Home from "./Home/Home";
 import LoanForm from "./Loan/LoanForm";
-import Personal from "./Personal/PersonalForm";
+import PersonalForm from "./Personal/PersonalForm";
 
 export const routes = createBrowserRouter([
   {
@@ -20,11 +20,11 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/personal",
-        element: <Personal></Personal>,
+        element: <PersonalForm></PersonalForm>,
       },
       {
         path: "/Business",
-        element: <Business></Business>,
+        element: <BusinessForm></BusinessForm>,
       },
       {
         path: "/Loan",
