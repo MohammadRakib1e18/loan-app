@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 const PersonalForm = () => {
   const navigate = useNavigate();
   const ID = localStorage.getItem("profile_id");
-  
+
   const {
     register,
     handleSubmit,
@@ -56,7 +56,7 @@ const PersonalForm = () => {
       loan: newLoanInfo,
     };
 
-    fetch("http://localhost:5000/saveInfo", {
+    fetch("https://loan-app-server-nu.vercel.app/saveInfo", {
       method: "POST",
       headers: {
         "content-type": "application/json",

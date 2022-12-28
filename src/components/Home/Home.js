@@ -7,13 +7,13 @@ const Home = () => {
   const navigate = useNavigate();
   const [profiles, setProfiles] = useState([]);
 
-  useEffect(()=>{
-    fetch("http://localhost:5000/saveInfo")
-    .then(res=>res.json())
-    .then(data => setProfiles(data));
-  },[])
-  if(!profiles){
-    return <h2>Loading, please wait......</h2>
+  useEffect(() => {
+    fetch("https://loan-app-server-nu.vercel.app/saveInfo")
+      .then((res) => res.json())
+      .then((data) => setProfiles(data));
+  }, []);
+  if (!profiles) {
+    return <h2>Loading, please wait......</h2>;
   }
 
   const handleNewProfile = () => {
@@ -38,7 +38,9 @@ const Home = () => {
       </div>
 
       <div className="mt-16">
-        <h2 className="text-2xl sm:text-3xl md:text-5xl text-center">Check All the Profiles</h2>
+        <h2 className="text-2xl sm:text-3xl md:text-5xl text-center">
+          Check All the Profiles
+        </h2>
         <div className="mt-8 px-4 grid grid-cols-1 md:grid-cols-2 gap-4">
           {profiles.map((profile) => (
             <Profile key={profile.ID} profile={profile}></Profile>

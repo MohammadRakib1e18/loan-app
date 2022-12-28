@@ -79,7 +79,7 @@ const PersonalForm = () => {
             loan,
             personal: newUser,
           };
-          fetch("http://localhost:5000/saveInfo", {
+          fetch("https://loan-app-server-nu.vercel.app/saveInfo", {
             method: "POST",
             headers: {
               "content-type": "application/json",
