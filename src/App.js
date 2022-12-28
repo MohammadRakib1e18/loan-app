@@ -7,7 +7,7 @@ function App() {
   return (
     <div className="text-slate-200">
       <RouterProvider router={routes}></RouterProvider>
-      <Toaster></Toaster>
+      <Toaster position="top-right"></Toaster>
     </div>
   );
 }
