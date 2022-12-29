@@ -205,7 +205,7 @@ const PersonalForm = () => {
               required: "Photo is Required",
             })}
             accept="image/*"
-            className="input input-bordered w-full rounded-none   border-gray-700  pt-2   bg-gray-900   text-gray-100 focus:border-violet-400"
+            className="input input-bordered w-full rounded-none   border-gray-700    bg-gray-900   text-gray-100 focus:border-violet-400"
           />
           {errors.image_url && (
             <p className="text-red-500">{errors.image_url.message}</p>

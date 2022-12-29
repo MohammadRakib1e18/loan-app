@@ -8,7 +8,7 @@ import { Spinner } from "flowbite-react";
 
 const Registration = () => {
 
-  const { loading, auth, createUser, googleSignIn } =
+  const { loading, setLoading,  auth, createUser, googleSignIn } =
     useContext(AuthContext);
   const navigate = useNavigate();
 
@@ -25,7 +25,6 @@ const Registration = () => {
     const form = event.target;
     const name = form.username.value;
     const email = form.email.value;
-    const userPhotoURL = form.photo.value;
     const password = form.password.value;
     const confirm = form.confirm.value;
 
@@ -38,17 +37,20 @@ const Registration = () => {
       .then((result) => {
         updateProfile(auth.currentUser, {
           displayName: `${name}`,
-          photoURL: `${userPhotoURL}`,
         })
           .then(() => {})
           .catch((error) => {
             toast.error(`${error.message}`);
+            setLoading(false);
+            navigate('/');
           });
         toast.success('Registration successful!');
         navigate("/");
       })
       .catch((error) => {
         toast.error(`${error.message}`);
+        setLoading(false);
+        navigate("/");
       });
   };
   const handleGoogleSignIn = () => {
@@ -60,7 +62,7 @@ const Registration = () => {
       })
       .catch((error) => {
         toast.error(`${error.message}`);
-        navigate("/");
+        setLoading(false);
       });
   };
 

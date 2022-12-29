@@ -1,16 +1,15 @@
 import React, { useContext} from "react";
-import { Link, useLocation, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { FaGoogle } from "react-icons/fa";
 import toast from "react-hot-toast";
 import { AuthContext } from "../../contexts/AuthProvider";
 import { Spinner } from "flowbite-react";
 
 const Login = () => {
-  const { loading, signIn, googleSignIn } = useContext(AuthContext);
+  let{ loading, setLoading, signIn, googleSignIn } = useContext(AuthContext);
+  console.log(loading);
 
   const navigate = useNavigate();
-  const location = useLocation();
-  const from = location.state?.from?.pathname || "/";
   if (loading) {
     return (
       <div className="text-center mt-12">
@@ -26,9 +25,13 @@ const Login = () => {
     const password = form.password.value;
 
     signIn(email, password)
-      .then((result) => {})
+      .then((result) => {
+        toast.success("Login successful!");
+        navigate("/");
+      })
       .catch((error) => {
         toast.error(`login error: ${error.message}`);
+        setLoading(false);
       });
   };
 
@@ -36,11 +39,11 @@ const Login = () => {
     googleSignIn()
       .then((result) => {
         toast.success("SignIn with Google Successful!");
-        navigate(from, { replace: true });
+        navigate('/');
       })
       .catch((error) => {
         toast.error(`${error.message}`);
-        navigate("/");
+        setLoading(false);
       });
   };
 

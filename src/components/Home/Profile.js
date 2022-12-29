@@ -35,18 +35,23 @@ const Profile = ({ profile, deleteProfile }) => {
       </span>
       <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3  gap-8 md:gap-2">
         <div className="">
-          <h2 className="">Personal Details</h2>
+          <h2 className="text-cyan-200 font-semibold text-lg">
+            Personal Details
+          </h2>
           <hr />
           <h5>
             {first_name} {last_name}
           </h5>
+          <p className="underline">ID: {profile.ID}</p>
           <p>{email}</p>
           <p>Location: {location}</p>
           <p>Age: {age}</p>
           <p>Created: {posted_time}</p>
         </div>
         <div className="">
-          <h2>Business Details</h2>
+          <h2 className="text-cyan-200 font-semibold text-lg">
+            Business Details
+          </h2>
           <hr />
           <h5>M.D. : {managing_director}</h5>
           <p>Business{business_name}</p>
@@ -55,7 +60,7 @@ const Profile = ({ profile, deleteProfile }) => {
           <p>Dealt: {date}</p>
         </div>
         <div className="">
-          <h2>Loan Details</h2>
+          <h2 className="text-cyan-200 font-semibold text-lg">Loan Details</h2>
           <hr />
           <p>Amount: {loan_amount}</p>
           <p>Interest: {interest_rate}</p>
