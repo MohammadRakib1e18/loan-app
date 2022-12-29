@@ -25,10 +25,16 @@ const Home = () => {
   }
 
   const handleNewProfile = () => {
-    localStorage.clear();
-    const ID = Math.ceil(Math.random() * (99999999 - 10000001)) + 10000001;
-    localStorage.setItem("profile_id", ID);
-    navigate("/personal");
+    if (!user?.uid) {
+      toast.error("Please, Login to create profile");
+      navigate("/login");
+    }
+    else{
+      localStorage.clear();
+      const ID = Math.ceil(Math.random() * (99999999 - 10000001)) + 10000001;
+      localStorage.setItem("profile_id", ID);
+      navigate("/personal");
+    }
   };
 
   const confirmDelete = (id) => {
