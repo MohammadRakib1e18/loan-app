@@ -28,8 +28,7 @@ const Home = () => {
     if (!user?.uid) {
       toast.error("Please, Login to create profile");
       navigate("/login");
-    }
-    else{
+    } else {
       localStorage.clear();
       const ID = Math.ceil(Math.random() * (99999999 - 10000001)) + 10000001;
       localStorage.setItem("profile_id", ID);
@@ -77,6 +76,7 @@ const Home = () => {
       ));
     }
   };
+  console.log(profiles);
 
   return (
     <div className="">
@@ -97,7 +97,7 @@ const Home = () => {
           All Profiles
         </h2>
         <>
-          {profiles?.length > 0 ? (
+          {profiles && (
             <div className="mt-8 px-4 grid grid-cols-1 md:grid-cols-2 gap-4">
               {profiles?.map((profile) => (
                 <Profile
@@ -107,7 +107,9 @@ const Home = () => {
                 ></Profile>
               ))}
             </div>
-          ) : (
+          )}
+          :{" "}
+          {!profiles && (
             <div className="mt-8 text-center">
               <h2 className="text-2xl sm:text-4xl font-bold md:text-6xl mt-8 text-slate-800">
                 No Profiles added

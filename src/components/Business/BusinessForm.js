@@ -56,7 +56,7 @@ const BusinessForm = () => {
       ID,
       personal,
       business: newBusinessInfo,
-      load: newBusinessInfo,
+      loan,
     };
 
     fetch("https://loan-app-server-nu.vercel.app/saveInfo", {

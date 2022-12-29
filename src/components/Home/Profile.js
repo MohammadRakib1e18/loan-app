@@ -1,5 +1,4 @@
 import React from "react";
-import { toast } from "react-hot-toast";
 
 const Profile = ({ profile, deleteProfile }) => {
   const {
@@ -10,11 +9,11 @@ const Profile = ({ profile, deleteProfile }) => {
     age,
     posted_time,
     image_url,
-  } = profile.personal;
+  } = profile?.personal;
   const { managing_director, business_name, gst, address, date } =
-    profile.business;
+    profile?.business;
 
-  const { loan_amount, loan_tenure, interest_rate } = profile.loan;
+  const { loan_amount, loan_tenure, interest_rate } = profile?.loan;
 
   return (
     <div className="bg-slate-800 p-2 rounded-md relative">
