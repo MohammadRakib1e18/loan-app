@@ -1,7 +1,7 @@
 import React from "react";
+import { toast } from "react-hot-toast";
 
-const Profile = ({ profile }) => {
-  console.log(profile);
+const Profile = ({ profile, deleteProfile }) => {
   const {
     first_name,
     last_name,
@@ -15,8 +15,9 @@ const Profile = ({ profile }) => {
     profile.business;
 
   const { loan_amount, loan_tenure, interest_rate } = profile.loan;
+
   return (
-    <div className="bg-slate-800 p-2 rounded-md">
+    <div className="bg-slate-800 p-2 rounded-md relative">
       <div className="avatar online">
         <div className="w-32 h-32">
           <img
@@ -26,6 +27,12 @@ const Profile = ({ profile }) => {
           />
         </div>
       </div>
+      <span
+        onClick={() => deleteProfile(profile._id)}
+        className="bg-red-500 px-2 rounded-full absolute top-2 right-2 cursor-pointer hover:bg-red-600 hover:scale-110 transition ease-in-out duration-500"
+      >
+        X
+      </span>
       <div className="grid grid-cols-1  md:grid-cols-2 lg:grid-cols-3  gap-8 md:gap-2">
         <div className="">
           <h2 className="">Personal Details</h2>

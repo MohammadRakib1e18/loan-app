@@ -3,7 +3,9 @@ import Main from "../Layout/Main";
 import BusinessForm from "./Business/BusinessForm";
 import Home from "./Home/Home";
 import LoanForm from "./Loan/LoanForm";
+import Login from "./Login/Login";
 import PersonalForm from "./Personal/PersonalForm";
+import Registration from "./Registration/Registration";
 
 export const routes = createBrowserRouter([
   {
@@ -30,6 +32,14 @@ export const routes = createBrowserRouter([
         path: "/Loan",
         element: <LoanForm></LoanForm>,
       },
+      {
+        path: '/login',
+        element: <Login></Login>
+      },
+      {
+        path: '/registration',
+        element: <Registration></Registration>
+      }
     ],
   },
 ]);
