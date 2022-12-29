@@ -81,7 +81,7 @@ const BusinessForm = () => {
 
   return (
     <div className="mt-5 w-4/6 mx-auto  p-8 space-y-3 rounded-md  bg-slate-700   text-gray-200">
-      <h1 className="text-2xl font-bold text-center">Loan Information</h1>
+      <h1 className="text-2xl font-bold text-center">Business Information</h1>
       <p className="text-center text-sm mt-2">profile ID: ( {ID} )</p>
       <form
         onSubmit={handleSubmit(handleBusinessInfo)}
